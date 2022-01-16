@@ -1,13 +1,17 @@
 package com.guuhp.dsmovie.Entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_movie")
+@Table(name = "tb_movie")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +20,11 @@ public class Movie {
     private Double score;
     private int count;
     private String image;
-    
-    public Movie(){
+
+    @OneToMany(mappedBy = "id.movie") // id nome da chave do score //movie ScorePk nome do atributo é Movie
+    private Set<Score> scores = new HashSet<>();// foi instanciado no hashSet pois o set é uma interface java
+
+    public Movie() {
 
     }
 
@@ -67,6 +74,10 @@ public class Movie {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<Score> getScores() {
+        return this.scores;
     }
 
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/movies")
 public class MovieController {
-    
+
     @Autowired
     private MovieService service;
 
@@ -25,7 +25,7 @@ public class MovieController {
     }
 
     @PostMapping(value = "/{id}")
-    public MovieDTO findById(@PathVariable(value="id")Long id) {
+    public MovieDTO findById(@PathVariable(value = "id") Long id) {
         return service.findById(id);
     }
 }
