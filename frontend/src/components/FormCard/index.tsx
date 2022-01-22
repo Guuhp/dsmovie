@@ -47,7 +47,7 @@ function FormCard({ movieId }: Props) {
 
   return (
     <div className="dsmovie-form-container">
-      <img className="dsmovie-movie-card-image" src={movie?.image} />
+      <img className="dsmovie-movie-card-image" src={movie?.image} alt="imagem do fileme"/>
       <div className="dsmovie-card-bottom-container">
         <h3>{movie?.title}</h3>
         <form className="dsmovie-form" onSubmit={handleSubmit}>
